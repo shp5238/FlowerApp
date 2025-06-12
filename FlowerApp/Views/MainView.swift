@@ -26,12 +26,11 @@ struct MainView: View {
                     .tabItem {
                         Label("Calendar", systemImage: "calendar")
                     }
-                /*
-                NotesView()
+                NotepadView()
+                    .environmentObject(viewModel)
                     .tabItem {
-                        Label("Notes", systemImage: "noteIcon.png")
+                        Label("Notepad", systemImage: "note.text")
                     }
-                 */
             }
             .overlay(
                 Button(action: {
@@ -45,6 +44,7 @@ struct MainView: View {
                 .padding()
                 .sheet(isPresented: $showingProfile) {
                     ProfileView()
+                        .environmentObject(viewModel)
                 },
                 alignment: .topTrailing
             )
