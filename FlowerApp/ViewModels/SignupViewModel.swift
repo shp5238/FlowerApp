@@ -30,9 +30,9 @@ class SignupViewModel: ObservableObject {
                     return
                 }
                 
-                guard let userId = result?.user.uid else {
+            guard let userId = result?.user.uid else {
                     self?.errorMsg = "Failed to create user"
-                    return
+                return
                 }
                 
                 self?.insertUserRecord(id: userId)
@@ -59,7 +59,7 @@ class SignupViewModel: ObservableObject {
         } catch {
             DispatchQueue.main.async {
                 self.errorMsg = "Failed to save user data: \(error.localizedDescription)"
-            }
+        }
         }
     }
     
